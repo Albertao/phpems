@@ -148,7 +148,9 @@ class app
 				);
 				exit(json_encode($message));
 			}
-			$id = $this->user->insertUser(array('username' => $username,'usergroupid' => $defaultgroup['groupid'],'userpassword' => md5($args['userpassword']),'useremail' => $email));
+			$department = $args['department'];
+			$party = $args['party'];
+			$id = $this->user->insertUser(array('username' => $username,'usergroupid' => $defaultgroup['groupid'],'userpassword' => md5($args['userpassword']),'useremail' => $email, 'normal_department' => $department, 'normal_party' => $party));
 			$this->session->setSessionUser(array('sessionuserid'=>$id,'sessionpassword'=>md5($args['userpassword']),'sessionip'=>$this->ev->getClientIp(),'sessiongroupid'=>$defaultgroup['groupid'],'sessionlogintime'=>TIME,'sessionusername'=>$username));
 			$message = array(
 				'statusCode' => 200,
@@ -162,6 +164,10 @@ class app
 		}
 		else
 		{
+			$data = array('department','department_party',false, 'department');
+			$query = $this->pesql->makeSelect($data);
+			$elements = $this->db->fetchAll($query);
+			$this->tpl->assign('departments', $elements);
 			$this->tpl->display('register');
 		}
 	}
@@ -177,6 +183,15 @@ class app
 		);
 		$this->G->R($message);
 		exit;
+	}
+
+	public function party()
+	{
+		$department = $this->ev->get('department');
+		$data = array('party','department_party', [['AND',"department = :department", 'department', $department]] );
+		$query = $this->pesql->makeSelect($data);
+		$elements = $this->db->fetchAll($query);
+		exit(json_encode($elements));
 	}
 }
 
