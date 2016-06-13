@@ -2572,3 +2572,41 @@ CREATE TABLE `x2_user_group` (
 INSERT INTO `x2_user_group` VALUES ('1', '管理员', '1', '管理员', '', '1', '0');
 INSERT INTO `x2_user_group` VALUES ('8', '普通用户', '9', '普通用户', '', '0', '1');
 INSERT INTO `x2_user_group` VALUES ('9', '教师', '12', '', '', '0', '0');
+
+
+-- 建表
+CREATE TABLE IF NOT EXISTS `x2_department_party` (
+  `departmentid` int(11) NOT NULL,
+  `department` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `party` varchar(100) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- 转存表中的数据 `x2_department_party`
+--
+
+INSERT INTO `x2_department_party` (`departmentid`, `department`, `party`) VALUES
+(2, '测试2', '测试22'),
+(3, '测试3', '测试33'),
+(4, '测试2', '测试213'),
+(5, '测试3', 'test4');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `x2_department_party`
+--
+ALTER TABLE `x2_department_party`
+  ADD PRIMARY KEY (`departmentid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `x2_department_party`
+--
+ALTER TABLE `x2_department_party`
+  MODIFY `departmentid` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;

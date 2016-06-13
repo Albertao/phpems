@@ -33,6 +33,25 @@
 							</div>
 						</div>
 						<div class="control-group">
+							<label class="control-label">选择所属部门：</label>
+							<div class="controls" for="department">
+								<select class="input-xlarge" id="department" name="args[department]" needle="needle">
+									<option></option>
+									{x2;tree:$departments,item,department_id}
+										<option value="{x2;v:item['department']}">{x2;v:item['department']}</option>
+									{x2;endtree}
+								</select>
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label">选择所属支部：</label>
+							<div class="controls" for="party">
+								<select class="input-xlarge" id="party" name="args[party]" needle="needle">
+									<option></option>
+								</select>
+							</div>
+						</div>
+						<div class="control-group">
 							<div class="controls">
 								<button class="btn btn-info logbtn" type="submit">立即注册</button>
 								<input type="hidden" value="1" name="userregister"/>
@@ -52,4 +71,17 @@
 </div>
 {x2;include:foot}
 </body>
+<script type="text/javascript">
+	$(function(){
+		$('#department').on('change', function(){
+			$.post('index.php?user-app-party', { department: $(this).val() }, function(data){
+				var parties = JSON.parse(data);
+				$('#party option').remove();
+				for (var i = 0; i < parties.length; i++) {
+					$('#party').append('<option value="'+parties[i].party+'">'+parties[i].party+'</option>');
+				}
+			});
+		});
+	});
+</script>
 </html>
