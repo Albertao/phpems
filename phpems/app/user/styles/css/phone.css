@@ -77,7 +77,10 @@ border:0px solid #dadada;}
 .logform,.examform{
 padding-top:25px;
 overflow: hidden;}
-
+.carousel img{
+    height:80px;
+    width:100%;
+}
 .logcontrol{
 padding-top:0px;}
 
