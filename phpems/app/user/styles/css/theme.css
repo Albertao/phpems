@@ -119,8 +119,9 @@ border-radius: 4px;
 .logform,.examform{
 padding:15px 5px 15px 5px;
 overflow: hidden;}
-.examform{
-    max-height:140px;width:auto;
+.carousel img{
+    height:360px;
+    width:100%;
 }
 .logcontrol{
 padding-top:60px;}

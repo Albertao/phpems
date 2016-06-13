@@ -8,7 +8,7 @@
 				<div class="banner span12">
 					<ul class="unstyled">
 						{x2;tree:$contents[2]['data'],content,cid}
-						<li><div class="inner"><a href="index.php?content-app-content&contentid={x2;v:content['contentid']}"><img src="{x2;v:content['contentthumb']}" /></a></div></li>
+						<li><div class="inner carousel"><a href="index.php?content-app-content&contentid={x2;v:content['contentid']}"><img src="{x2;v:content['contentthumb']}"/></a></div></li>
 						{x2;endtree}
 					</ul>
 				</div>
@@ -86,7 +86,7 @@
 {x2;include:foot}
 <script>
 $(function() {
-    $('.banner').unslider({dots: true});
+    $('.banner').unslider({dots:true});
 });
 </script>
 </body>
