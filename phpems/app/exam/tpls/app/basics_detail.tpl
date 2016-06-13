@@ -35,7 +35,6 @@
 							<p>&nbsp;</p>
 							<p>科目：{x2;$subjects[$basic['basicsubjectid']]['subject']}</p>
 							<p>地区：{x2;$areas[$basic['basicareaid']]['area']}</p>
-							<p>您现有积分：{x2;$_user['usercoin']} （<a href="index.php?user-center-payfor">支付宝充值</a> / <a href="#myModal" role="button" data-toggle="modal">代金券充值</a>）</p>
 							{x2;if:$isopen}<p>到期时间：{x2;date:$isopen['obendtime'],'Y-m-d'}</p>{x2;endif}
 						</div>
 						<div>&nbsp;</div>
