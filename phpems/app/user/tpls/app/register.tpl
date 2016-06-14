@@ -52,6 +52,16 @@
 							</div>
 						</div>
 						<div class="control-group">
+							<label class="control-label" for="">选择身份类型：</label>
+							<div class="controls">
+								<select class="input-xlarge" id="type" name="args[type]" needle="needle">
+									<option value="1">教工</option>
+									<option value="2">本科生</option>
+									<option value="3">研究生</option>
+								</select>
+							</div>
+						</div>
+						<div class="control-group">
 							<div class="controls">
 								<button class="btn btn-info logbtn" type="submit">立即注册</button>
 								<input type="hidden" value="1" name="userregister"/>

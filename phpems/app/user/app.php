@@ -150,7 +150,8 @@ class app
 			}
 			$department = $args['department'];
 			$party = $args['party'];
-			$id = $this->user->insertUser(array('username' => $username,'usergroupid' => $defaultgroup['groupid'],'userpassword' => md5($args['userpassword']),'useremail' => $email, 'normal_department' => $department, 'normal_party' => $party));
+			$type=$args['type'];
+			$id = $this->user->insertUser(array('username' => $username,'usergroupid' => $defaultgroup['groupid'],'userpassword' => md5($args['userpassword']),'useremail' => $email, 'normal_department' => $department, 'normal_party' => $party,'normal_type'=>$type));
 			$this->session->setSessionUser(array('sessionuserid'=>$id,'sessionpassword'=>md5($args['userpassword']),'sessionip'=>$this->ev->getClientIp(),'sessiongroupid'=>$defaultgroup['groupid'],'sessionlogintime'=>TIME,'sessionusername'=>$username));
 			$message = array(
 				'statusCode' => 200,
