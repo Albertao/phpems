@@ -33,8 +33,8 @@
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label">选择所属部门：</label>
-							<div class="controls" for="department">
+							<label class="control-label" for="department">选择所属部门：</label>
+							<div class="controls">
 								<select class="input-xlarge" id="department" name="args[department]" needle="needle">
 									<option></option>
 									{x2;tree:$departments,item,department_id}
@@ -44,8 +44,8 @@
 							</div>
 						</div>
 						<div class="control-group">
-							<label class="control-label">选择所属支部：</label>
-							<div class="controls" for="party">
+							<label class="control-label" for="party">选择所属支部：</label>
+							<div class="controls">
 								<select class="input-xlarge" id="party" name="args[party]" needle="needle">
 									<option></option>
 								</select>
@@ -81,6 +81,12 @@
 					$('#party').append('<option value="'+parties[i].party+'">'+parties[i].party+'</option>');
 				}
 			});
+		});
+		var party;
+		$('#party').change(function(){
+			party=$(this).val();
+		}).blur(function(){
+			$(this).val(party);
 		});
 	});
 </script>
