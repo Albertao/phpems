@@ -1,2 +1,5 @@
 .idea
 phpems/data
+.DS_Store
+phpems/.DS_Store
+phpems/app/.DS_Store
